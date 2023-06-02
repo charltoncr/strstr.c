@@ -1,4 +1,4 @@
-/* Author: Ron Charlton (charltoncr@wowway.com or Ron@RonCharlton.org)
+/* Author: Ron Charlton <Ron@RonCharlton.org>
  * Date: 2023-05-25
  * This file is public domain per CC0 1.0, see
  * https://creativecommons.org/publicdomain/mark/1.0/
