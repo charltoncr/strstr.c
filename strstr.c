@@ -38,7 +38,7 @@ char *strstr(register const char *s1, register const char *s2)
             if (!*s1) return NULL;
         }
 		for (p1 = ++s1, p2 = s2; (*p1 == *p2) && *p2;)
-             ++p1, ++p2;
+            ++p1, ++p2;
 		if (!*p2)	/* reached end of s2: match at s1-1 */
 			return (char *)--s1;
 	}
