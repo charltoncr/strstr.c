@@ -1,5 +1,5 @@
 <!-- title: strstr.c Read Me -->
-<!-- $Id: README.md,v 1.5 2023-08-20 17:00:39-04 ron Exp $ -->
+<!-- $Id: README.md,v 1.6 2023-08-20 17:39:07-04 ron Exp $ -->
 
 # strstr.c
 
@@ -10,7 +10,7 @@ Library's strstr's function but is faster in many cases.
 
 This implementation of strstr is tied for speed with its nearest competitor
 among 18 diverse strstr implementations when finding English words in
-English text.  This strstr is 17 executable lines long versus 67 lines for
+English text.  This strstr is 15 executable lines long versus 67 lines for
 its nearest competitor, without the convoluted code of that competitor.
 Its other competitors are between 10.5% and 348% slower.
 
