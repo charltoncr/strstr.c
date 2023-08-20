@@ -19,8 +19,8 @@ library strchr using SIMD instructions to search fast.
 extern "C" {
 #endif
 
-static char rcsid_ssF[] =
-		"$Id: strstrFunctions.c,v 1.69 2023-08-04 14:06:03-04 ron Exp $";
+char rcsid_ssF[] =
+		"$Id: strstrFunctions.c,v 1.71 2023-08-20 16:56:21-04 ron Exp $";
 
 char *submitters[] = {
 	"Compiler library strstr",					/* 0  */
@@ -70,8 +70,6 @@ char *strstr1(register const char *s1, register const char *s2)
 	for (;;) {
         // strchr-like for loop unrolled for speed
         for (; *s1 != c; ++s1) {
-            if (!*s1) return NULL;
-            if (*++s1 == c) break;
             if (!*s1) return NULL;
             if (*++s1 == c) break;
             if (!*s1) return NULL;
