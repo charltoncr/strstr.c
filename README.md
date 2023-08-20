@@ -1,5 +1,5 @@
 <!-- title: strstr.c Read Me -->
-<!-- $Id: README.md,v 1.4 2023-08-04 14:06:17-04 ron Exp $ -->
+<!-- $Id: README.md,v 1.5 2023-08-20 17:00:39-04 ron Exp $ -->
 
 # strstr.c
 
@@ -25,8 +25,6 @@ char *strstr(register const char *s1, register const char *s2)
     for (;;) {
         // strchr-like for loop unrolled for speed
         for (; *s1 != c; ++s1) {
-            if (!*s1) return NULL;
-            if (*++s1 == c) break;
             if (!*s1) return NULL;
             if (*++s1 == c) break;
             if (!*s1) return NULL;
