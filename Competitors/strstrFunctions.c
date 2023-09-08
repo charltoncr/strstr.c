@@ -6,13 +6,12 @@ For general use strstr1 and strstr20 are the fastest by maybe 10%.
 Jonas M|ls{ (strstr4-6) are always slowest by a factor of 3 or more.
 strstr1 and strstr20 are within 0.5% speed when searching English or French text,
 or a disordered or ordered, unique word list.  In the case where the first
-character of s2 isn't found many times or not at all, strstr8, strstr15,
+character of s2 is found few times or not at all, strstr8, strstr15,
 strstr16 and strstr7 are 6.5 times faster than the others, likely due to the
 library strchr using SIMD instructions to search fast.
 */
 
 
-#include <stdio.h>
 #include <string.h>
 
 #ifdef __cplusplus
@@ -20,30 +19,30 @@ extern "C" {
 #endif
 
 char rcsid_ssF[] =
-		"$Id: strstrFunctions.c,v 1.71 2023-08-20 16:56:21-04 ron Exp $";
+		"$Id: strstrFunctions.c,v 1.73 2023-09-08 15:30:46-04 ron Exp $";
 
 char *submitters[] = {
-	"Compiler library strstr",					/* 0  */
-	"Ron Charlton",								/* 1  */
-	"Dale Moore strstr2",						/* 2  */
-	"Chris Torek (BSD)",						/* 3  */
-	"Jonas M|ls{ 1",							/* 4  */
-	"Jonas M|ls{ 2",							/* 5  */
-	"Jonas M|ls{ 3",							/* 6  */
-	"Dan Stubbs (Plauger)",						/* 7  */
-	"Dale Moore strstr8",						/* 8  */
-	"Compiler library strstr (was SUN)",		/* 9  */
-	"osf1",										/* 10 */
-	"Moore1a (same as strstr2)",				/* 11 */
-	"Moore1b",									/* 12 */
-	"Moore2a",									/* 13 */
-	"Moore2b",									/* 14 */
-	"Moore3a",									/* 15 */
-	"Moore3b",									/* 16 */
-	"Compiler library strstr (was Boyer-M-H)",	/* 17 */
-	"Visual C/C++ v6.0, 8.0, 10.0 C source",	/* 18 */
-	"Berkeley",									/* 19 */
-	"GNU coreutils 5.3.0",						/* 20 */
+    "Compiler library strstr",                  /* 0  */
+    "Ron Charlton",                             /* 1  */
+    "Dale Moore strstr2",                       /* 2  */
+    "Chris Torek (BSD)",                        /* 3  */
+    "Jonas M|ls{ 1",                            /* 4  */
+    "Jonas M|ls{ 2",                            /* 5  */
+    "Jonas M|ls{ 3",                            /* 6  */
+    "Dan Stubbs (Plauger)",                     /* 7  */
+    "Dale Moore strstr8",                       /* 8  */
+    "Compiler library strstr (was SUN)",        /* 9  */
+    "osf1",                                     /* 10 */
+    "Moore1a (same as strstr2)",                /* 11 */
+    "Moore1b",                                  /* 12 */
+    "Moore2a",                                  /* 13 */
+    "Moore2b",                                  /* 14 */
+    "Moore3a",                                  /* 15 */
+    "Moore3b",                                  /* 16 */
+    "Compiler library strstr (was Boyer-M-H)",  /* 17 */
+    "Visual C/C++ v6.0, 8.0, 10.0 C source",    /* 18 */
+    "Berkeley",                                 /* 19 */
+    "GNU coreutils 5.3.0",                      /* 20 */
 };
 
 /*---------------------------(strstr1)------------------------------------*/
@@ -839,8 +838,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 #if HAVE_CONFIG_H
 # include <config.h>
 #endif
-
-#include <string.h>
 
 typedef unsigned chartype;
 
