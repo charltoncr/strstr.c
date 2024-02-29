@@ -19,7 +19,7 @@ extern "C" {
 #endif
 
 char rcsid_ssF[] =
-		"$Id: strstrFunctions.c,v 1.76 2024-02-28 09:58:09-05 ron Exp $";
+		"$Id: strstrFunctions.c,v 1.77 2024-02-29 04:29:37-05 ron Exp $";
 
 char *submitters[] = {
     "Compiler library strstr",                  /* 0  */
@@ -62,10 +62,9 @@ char *submitters[] = {
 char *strstr1(register const char *s1, register const char *s2)
 {
 	register const char *p1, *p2;
-    register char c, d;
+    register char c;
 
 	if (!(c = *s2++)) return (char *)s1;
-    d = *s2++;
 
 	for (;;) {
         // strchr-like for loop unrolled for speed
@@ -74,12 +73,8 @@ char *strstr1(register const char *s1, register const char *s2)
             if (*++s1 == c) break;
             if (!*s1) return NULL;
         }
-        if (!d) return (char *)s1;
-        if (*++s1 == d) {
-            for (p1 = ++s1, p2 = s2; (*p1 == *p2) && *p2;) ++p1, ++p2;
-            if (!*p2) return (char *)s1 - 2;
-        } else
-            if (!*s1) return NULL;
+		for (p1 = ++s1, p2 = s2; (*p1 == *p2) && *p2;) ++p1, ++p2;
+		if (!*p2) return (char *)--s1;
 	}
 }
 
