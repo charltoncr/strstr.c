@@ -5,7 +5,7 @@
  * 
  * This pure C implementation of strstr is tied for speed with its fastest
  * competitor among 18 diverse strstr implementations when finding English
- * words in English text. This strstr is 16 executable lines long
+ * words in English text. This strstr is 15 executable lines long
  * versus 67 lines for its fastest competitor, without the convoluted code
  * of that competitor. Its other competitors are between 10.5% and 348% slower.
  */
@@ -24,10 +24,9 @@
 char *strstr(register const char *s1, register const char *s2)
 {
 	register const char *p1, *p2;
-    register char c, d;
+    register char c;
 
 	if (!(c = *s2++)) return (char *)s1;
-    d = *s2++;
 
 	for (;;) {
         // strchr-like for loop unrolled for speed
@@ -36,11 +35,7 @@ char *strstr(register const char *s1, register const char *s2)
             if (*++s1 == c) break;
             if (!*s1) return NULL;
         }
-        if (!d) return (char *)s1;
-        if (*++s1 == d) {
-            for (p1 = ++s1, p2 = s2; (*p1 == *p2) && *p2;) ++p1, ++p2;
-            if (!*p2) return (char *)s1 - 2;
-        } else
-            if (!*s1) return NULL;
+		for (p1 = ++s1, p2 = s2; (*p1 == *p2) && *p2;) ++p1, ++p2;
+		if (!*p2) return (char *)--s1;
 	}
 }
